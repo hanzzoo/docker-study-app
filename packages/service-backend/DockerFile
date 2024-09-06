@@ -1,0 +1,10 @@
+FROM golang:1.23-alpine
+WORKDIR /app
+COPY packages/service-backend/go.mod ./
+RUN go mod download && go mod verify
+COPY packages/service-backend ./
+# 実行ファイルをビルド
+RUN go build -o main .
+EXPOSE 4000
+# 実行ファイルを起動
+CMD ["./main"]
