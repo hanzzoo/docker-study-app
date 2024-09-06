@@ -7,9 +7,16 @@ import (
 	"os"
 )
 
+func setupHeader(response http.ResponseWriter) {
+	response.Header().Set("Access-Control-Allow-Origin", "http://localhost:3000")
+	response.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE")
+	response.Header().Set("Access-Control-Allow-Headers", "application/json")
+}
+
 type SampleHandler struct{}
 
 func (h *SampleHandler) ServeHTTP(response http.ResponseWriter, request *http.Request) {
+	setupHeader(response)
 	var sampleData = map[string]string{
 		"message": "Hello, World!",
 	}
