@@ -4,7 +4,7 @@
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost/api/sample')
+      const response = await axios.get('https://localhost/api/sample')
       return response.data
     } catch (error) {
       console.error(error)
