@@ -9,7 +9,7 @@ import (
 
 func setupHeader(response http.ResponseWriter, request *http.Request) {
 	origin := request.Header.Get("Origin")
-	if origin == "http://localhost" || origin == "http://localhost:3000" {
+	if origin == "https://localhost" {
 		response.Header().Set("Access-Control-Allow-Origin", origin)
 	}
 	response.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE")
